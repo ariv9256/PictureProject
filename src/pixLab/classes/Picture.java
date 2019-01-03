@@ -94,9 +94,23 @@ public class Picture extends SimplePicture
     {
       for (Pixel pixelObj : rowArray)
       {
-        pixelObj.setBlue(0);
+        pixelObj.setGreen(0);
       }
     }
+  }
+  public void zeroRed() 
+  {
+	  Pixel [][] pixels = this.getPixels2D();
+	  for(int row = 0; row < pixels.length; row++)
+	  {
+		  for(int col = 0; col < pixels[0].length; col++)
+		  {
+			  pixels [row][col].setRed(0);
+			  
+			  Pixel tempPixel = pixels[row][col];
+			  tempPixel.setRed(0);
+		  }
+	  }
   }
   
   /** Method that mirrors the picture around a 
