@@ -26,6 +26,13 @@ public class PictureTester
     caterpillar.mirrorVertical();
     caterpillar.explore();
   }
+  public static void testGlitchify()
+  {
+	  Picture butterfly1 = new Picture ("butterfly1.jpg");
+	  butterfly1.explore();
+	  butterfly1.glitchify(); 
+	  butterfly1.explore();
+  }
   
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
@@ -59,14 +66,15 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
+    //testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testNegate();
     //testGrayscale();
+	  testGlitchify();
     //testFixUnderwater();
-    testMirrorVertical();
+    //testMirrorVertical();
     //testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
