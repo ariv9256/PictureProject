@@ -2,6 +2,7 @@ package pixLab.classes;
 import java.awt.*;
 import java.awt.font.*;
 import java.awt.geom.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.text.*;
 import java.util.*;
@@ -28,7 +29,22 @@ public class Picture extends SimplePicture
      */
     super();  
   }
-  
+  public void chromakey(Picture replacement, Color changeColor)
+  {
+	  Pixel[][] mainPixels = this.getPixels2D();
+	  Pixel[][] replacementPixels = replacement.getPixels2D();
+	  
+	  for (int row = 0; row < mainPixels.length; row++)
+	  {
+		  for(int col = 0; col < mainPixels.length; col++)
+		  {
+			  if (mainPixels[row][col].colorDistance(changeColor) < 50)
+			  {
+				  mainPixels[row][col].setColor(replacementPixels[row][col].getColor());
+			  }
+		  }
+	  }
+  }
   /**
    * Constructor that takes a file name and creates the picture 
    * @param fileName the name of the file to create the picture from
@@ -132,21 +148,33 @@ public class Picture extends SimplePicture
       }
     } 
   }
-  public void glitchify()
+  public Color randomColor()
   {
-	  Pixel[][] pixels = this.getPixels2D();
-	  Pixel leftPixel = null;
-	  Pixel rightPixel = null;
-	  int height = pixels[0].length;
-	  int random = (int) (Math.random()*30);
-	  for(int row = random; row < 10; row++)
+	  Color random;
+	  int red = (int)(Math.random() * 256);
+	  int green = (int)(Math.random() * 256);
+	  int blue = (int)(Math.random() * 256);
+	  
+	  random = new Color(red, green, blue);
+	  
+	  return random;
+  }
+  
+  public void randomize(int startRow, int startCol, int endRow, int endCol)
+  {
+	  Pixel [][] pixels = this.getPixels2D();
+	  
+	  for(int row = startRow; row < endRow; row++)
 	  {
-		  for (int col = random; col < 15; col++)
+		  for(int col = startCol; col < endCol; col++)
 		  {
-			  left
+			  int randomNumber = (int)(Math.random() * 10);
+			  if(randomNumber % 7 == 0)
+			  {
+				  pixels[row][col].setColor(randomColor());
+			  }
 		  }
 	  }
-	  
   }
   public void mirrorHorizontal()
   {

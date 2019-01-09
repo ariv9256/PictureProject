@@ -7,6 +7,8 @@ package pixLab.classes;
  * 
  * @author Barbara Ericson 
  */
+import java.awt.Color;
+
 public class PictureTester
 {
   /** Method to test zeroBlue */
@@ -17,20 +19,29 @@ public class PictureTester
     beach.zeroBlue();
     beach.explore();
   }
+  public static void testChromakey()
+  {
+	  Picture source = new Picture("SmolCat.jpg");
+	  Picture background = new Picture("CuteBackground.jpg");
+	  source.explore();
+	  background.explore();
+	  source.chromakey(background, Color.WHITE);
+	  source.explore();
+  }
   
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
-    Picture caterpillar = new Picture("caterpillar.jpg");
-    caterpillar.explore();
-    caterpillar.mirrorVertical();
-    caterpillar.explore();
+    Picture glitched = new Picture("caterpillar.jpg");
+    glitched.explore();
+    glitched.mirrorVertical();
+    glitched.explore();
   }
-  public static void testGlitchify()
+  public static void testRandomColor()
   {
 	  Picture butterfly1 = new Picture ("butterfly1.jpg");
 	  butterfly1.explore();
-	  butterfly1.glitchify(); 
+	  butterfly1.randomColor(); 
 	  butterfly1.explore();
   }
   
@@ -58,7 +69,6 @@ public class PictureTester
     swan.edgeDetection(10);
     swan.explore();
   }
-  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -72,7 +82,7 @@ public class PictureTester
     //testKeepOnlyGreen();
     //testNegate();
     //testGrayscale();
-	  testGlitchify();
+	//testRandomColor();
     //testFixUnderwater();
     //testMirrorVertical();
     //testMirrorTemple();
@@ -83,7 +93,7 @@ public class PictureTester
     //testCopy();
     //testEdgeDetection();
     //testEdgeDetection2();
-    //testChromakey();
+    testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
     //testSetRedToHalfValueInTopHalf();
