@@ -45,6 +45,62 @@ public class Picture extends SimplePicture
 		  }
 	  }
   }
+  public void shiftLeftRight(int amount)
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Picture temp = new Picture(this);
+	  Pixel[][] copied = temp.getPixels2D();
+	  
+	  int shiftedValue = amount;
+	  int width = pixels[0].length;
+	  
+	  for(int row = 0; row < pixels.length; row++) 
+	  {
+		  for (int col = 0; col < pixels[0].length; col++)
+		  {
+			  shiftedValue = (col + amount) % width;
+			  if (amount < 0)
+			  {
+				  shiftedValue = ((col + amount) % width + width) % width;
+			  }
+			  copied[row][col].setColor(pixels[row][shiftedValue].getColor());
+			  
+		  }
+	  }
+	  for (int row = 0; row < pixels.length; row++)
+	  {
+		  for (int col = 0; col < pixels[0].length; col++)
+		  {
+			  pixels[row][col].setColor(copied[row][col].getColor());
+		  }
+	  }
+  }
+  public void shiftUpDown(int amount)
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Picture temp = new Picture(this);
+	  Pixel [][]copied = temp.getPixels2D();
+	  
+	  int shiftedValue = amount;
+	  int height = pixels.length;
+	  
+	  for(int row = 0; row < pixels.length; row++)
+	  {
+		  for(int col = 0; col < pixels.length; row)
+		  {
+			  shiftedValue = (row + amount) % height;
+			  copied[row][col].setColor(pixels[shiftedValue][col].getColor());
+			  
+		  }
+	  }
+	  for (int row = 0; row < pixels.length; row++)
+	  {
+		  for(int col = 0; col < pixels[0].length; col++)
+		  {
+			  pixels[row][col].setColor(copied[row][col].getColor());
+		  }
+	  }
+  }
   /**
    * Constructor that takes a file name and creates the picture 
    * @param fileName the name of the file to create the picture from
@@ -176,6 +232,50 @@ public class Picture extends SimplePicture
 		  }
 	  }
   }
+  public void stripe(int amount, int startRow, int endRow, int startCol, int endCol)
+  {
+	  Pixel [][] pixels = this.getPixels2D();
+	  Picture temp = new Picture(this);
+	  Pixel[][] copied = temp.getPixels2D();
+	  
+	  int shiftedValue = amount;
+	  int width = pixels[0].length;
+	  int height = pixels.length; 
+	  
+	  //Left + Right
+	  for(int row = 0; row < 50; row++)
+	  {
+		  for(int col = 0; col < 50; col++)
+		  {
+			  shiftedValue = (col + amount) % width;
+			  if (amount< 0)
+			  {
+				  shiftedValue = ((row + amount) % width + width) % width;
+			  }
+			  copied[row][col].setColor(pixels[row][shiftedValue].getColor());
+		  }
+	  }
+	  //Up + Down
+	  for (int row = 0; row < 50; row++)
+	  {
+		  for(int col = 0; col < 50; col++)
+		  {
+			  shiftedValue = (row + amount) % height;
+			  if(amount< 0) 
+			  {
+				  shiftedValue = ((col + amount) % height + height) % height;
+			  }
+			  copied[row][col].setColor(pixels[shiftedValue][col].getColor());
+		  }
+	  }
+	  for(int row = 0; row < pixels.length; row++)
+	  {
+		  for(int col = 0;  col < pixels[0].length; col++)
+		  {
+			  pixels[row][col].setColor(copied[row][col].getColor());
+		  }
+	  }
+  }
   public void mirrorHorizontal()
   {
 	  Pixel[][] pixels = this.getPixels2D();
@@ -291,7 +391,20 @@ public class Picture extends SimplePicture
       }
     }
   }
-  
+  public void negate()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  for (Pixel[] rowArray : pixels)
+	  {
+		  for(Pixel pixelObj: rowArray)
+		  {
+			  pixelObj.setRed(255- pixelObj.getRed());
+			  pixelObj.setGreen(255- pixelObj.getGreen());
+			  pixelObj.setBlue(255- pixelObj.getBlue());
+			  
+		  }
+	  }
+  }
   
   /* Main method for testing - each class in Java can have a main 
    * method 

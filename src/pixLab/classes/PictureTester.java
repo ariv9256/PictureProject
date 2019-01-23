@@ -24,7 +24,7 @@ public class PictureTester
 	  Picture source = new Picture("SmolCat.jpg");
 	  Picture background = new Picture("CuteBackground.jpg");
 	  source.explore();
-	  background.explore();
+	  background.explore(); 
 	  source.chromakey(background, Color.WHITE);
 	  source.explore();
   }
@@ -93,7 +93,8 @@ public class PictureTester
     //testCopy();
     //testEdgeDetection();
     //testEdgeDetection2();
-    testChromakey();
+    //testChromakey();
+	  testRandomColor();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
     //testSetRedToHalfValueInTopHalf();
