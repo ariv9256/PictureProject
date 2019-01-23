@@ -86,7 +86,7 @@ public class Picture extends SimplePicture
 	  
 	  for(int row = 0; row < pixels.length; row++)
 	  {
-		  for(int col = 0; col < pixels.length; row)
+		  for(int col = 0; col < pixels.length; col++)
 		  {
 			  shiftedValue = (row + amount) % height;
 			  copied[row][col].setColor(pixels[shiftedValue][col].getColor());

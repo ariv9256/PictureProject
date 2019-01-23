@@ -47,7 +47,15 @@ public class IntArrayWorker
   {
 	  int count = Integer.MAX_VALUE;
 	  for(int col = 0; col < matrix[0].length; col++)
-	  
+	  {
+		  for(int row = 0; row < matrix.length; row++)
+		  {
+			  if (matrix[row][col] < count)
+			  {
+				  count = matrix[row][col];
+			  }
+		  }
+	  }
 	  return count;
   }
   /**
