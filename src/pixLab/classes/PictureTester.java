@@ -21,11 +21,22 @@ public class PictureTester
   }
   public static void testStripe()
   {
-	  Picture glitch = new Picture("CursedImage1.jpg");
+	  Picture glitch = new Picture("CursedImage4.png");
 	  glitch.explore();
 	  glitch.stripe(-200, 50,50, 100,100);
 	  glitch.explore();
 			  
+  }
+  public static void testSteganography()
+  {
+	  Picture source = new Picture("CursedImage3.png");
+	  Picture message = new Picture("BlackandWhitePic.png");
+	  source.explore();
+	  message.explore();
+	  source.hidePicture(message);
+	  source.explore();
+	  source.revealPicture();
+	  source.explore();
   }
   public static void testChromakey()
   {

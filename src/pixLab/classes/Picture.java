@@ -244,9 +244,9 @@ public class Picture extends SimplePicture
 	  int height = pixels.length; 
 	  
 	  //Left + Right
-	  for(int row = 0; row < 50; row++)
+	  for(int row = 0; row < endRow; row++)
 	  {
-		  for(int col = 0; col < 50; col++)
+		  for(int col = 0; col < endCol; col++)
 		  {
 			  shiftedValue = (col + amount) % width;
 			  if (amount< 0)
@@ -257,9 +257,9 @@ public class Picture extends SimplePicture
 		  }
 	  }
 	  //Up + Down
-	  for (int row = 0; row < 50; row++)
+	  for (int row = 0; row < pixels.length; row++)
 	  {
-		  for(int col = 0; col < 50; col++)
+		  for(int col = 0; col < pixels[0].length; col++)
 		  {
 			  shiftedValue = (row + amount) % height;
 			  if(amount< 0) 
@@ -276,6 +276,14 @@ public class Picture extends SimplePicture
 			  pixels[row][col].setColor(copied[row][col].getColor());
 		  }
 	  }
+  }
+  public void hidePicture()
+  {
+	  
+  }
+  public void revealPicture()
+  {
+	  
   }
   public void mirrorHorizontal()
   {
