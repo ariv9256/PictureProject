@@ -233,6 +233,7 @@ public class Picture extends SimplePicture
 	  }
   }
   public void stripe(int amount, int startRow, int endRow, int startCol, int endCol)
+  
   {
 	  Pixel [][] pixels = this.getPixels2D();
 	  Picture temp = new Picture(this);

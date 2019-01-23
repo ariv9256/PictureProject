@@ -19,6 +19,14 @@ public class PictureTester
     beach.zeroBlue();
     beach.explore();
   }
+  public static void testStripe()
+  {
+	  Picture glitch = new Picture("CursedImage1.jpg");
+	  glitch.explore();
+	  glitch.stripe(-200, 50,50, 100,100);
+	  glitch.explore();
+			  
+  }
   public static void testChromakey()
   {
 	  Picture source = new Picture("SmolCat.jpg");
@@ -77,6 +85,7 @@ public class PictureTester
     // and comment out the ones you don't want
     // to run
     //testZeroBlue();
+	  testStripe();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
@@ -94,7 +103,7 @@ public class PictureTester
     //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
-	  testRandomColor();
+	//testRandomColor();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
     //testSetRedToHalfValueInTopHalf();
