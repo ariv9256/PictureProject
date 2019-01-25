@@ -72,6 +72,22 @@ public class PictureTester
     temple.mirrorTemple();
     temple.explore();
   }
+  public static void testNegate()
+  {
+	  Picture negate = new Picture("CursedImage4.png");
+	  negate.explore();
+	  negate.negate();
+	  negate.explore();
+  }
+  public static void testGlitching()
+  {
+	  Picture cursed = new Picture("CursedImage4.png");
+	  cursed.explore();
+	  cursed.negate();
+	  cursed.mirrorVertical();
+	  cursed.randomize();
+	  
+  }
   
   /** Method to test the collage method */
   public static void testCollage()
@@ -110,6 +126,7 @@ public class PictureTester
     //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
+	//testSteganography();
     //testCopy();
     //testEdgeDetection();
     //testEdgeDetection2();
