@@ -79,13 +79,21 @@ public class PictureTester
 	  negate.negate();
 	  negate.explore();
   }
+  public static void testRandomize()
+  {
+	  Picture random = new Picture("CursedImage3.png");
+	  random.explore();
+	  random.randomize(0, 0, 50, 50);
+	  random.explore();
+	  
+  }
   public static void testGlitching()
   {
 	  Picture cursed = new Picture("CursedImage4.png");
 	  cursed.explore();
 	  cursed.negate();
 	  cursed.mirrorVertical();
-	  cursed.randomize();
+	  cursed.randomize(0, 0, cursed.getWidth(), cursed.getHeight());
 	  
   }
   
@@ -108,34 +116,36 @@ public class PictureTester
     * method in Java */
   public static void main(String[] args)
   {
-    // uncomment a call here to run a test
-    // and comment out the ones you don't want
-    // to run
-    //testZeroBlue();
-	//testStripe();
-    //testKeepOnlyBlue();
-    //testKeepOnlyRed();
-    //testKeepOnlyGreen();
-    //testNegate();
-    //testGrayscale();
-	//testRandomColor();
-    //testFixUnderwater();
-    //testMirrorVertical();
-    //testMirrorTemple();
-    //testMirrorArms();
-    //testMirrorGull();
-    //testMirrorDiagonal();
-    //testCollage();
-	//testSteganography();
-    //testCopy();
-    //testEdgeDetection();
-    //testEdgeDetection2();
-    //testChromakey();
-	//testRandomColor();
-    //testEncodeAndDecode();
-    //testGetCountRedOverValue(250);
-    //testSetRedToHalfValueInTopHalf();
-    //testClearBlueOverValue(200);
-    //testGetAverageForColumn(0);
+//     uncomment a call here to run a test
+//     and comment out the ones you don't want
+//     to run
+	  testGlitching();
+//    testZeroBlue();
+//	  testStripe();
+//    testKeepOnlyBlue();
+//    testKeepOnlyRed();
+//    testKeepOnlyGreen();
+//    testNegate();
+//	  testRandomize();
+//    testGrayscale();
+//	  testRandomColor();
+//    testFixUnderwater();
+//    testMirrorVertical();
+//    testMirrorTemple();
+//    testMirrorArms();
+//    testMirrorGull();
+//    testMirrorDiagonal();
+//    testCollage();
+//	  testSteganography();
+//    testCopy();
+//    testEdgeDetection();
+//    testEdgeDetection2();
+//    testChromakey();
+//	  testRandomColor();
+//    testEncodeAndDecode();
+//    testGetCountRedOverValue(250);
+//    testSetRedToHalfValueInTopHalf();
+//    testClearBlueOverValue(200);
+//    testGetAverageForColumn(0);
   }
 }

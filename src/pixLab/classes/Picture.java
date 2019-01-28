@@ -220,17 +220,31 @@ public class Picture extends SimplePicture
   {
 	  Pixel [][] pixels = this.getPixels2D();
 	  
-	  for(int row = startRow; row < endRow; row++)
+	  for(int row = 0; row < pixels.length; row++)
 	  {
-		  for(int col = startCol; col < endCol; col++)
+		  for(int col = 0; col < pixels[0].length; col++)
 		  {
-			  int randomNumber = (int)(Math.random() * 10);
-			  if(randomNumber % 7 == 0)
+			  int randomNumber = (int)(Math.random() * 25);
+			  if(randomNumber % 3 == 0)
 			  {
 				  pixels[row][col].setColor(randomColor());
 			  }
 		  }
 	  }
+  }
+  public void glitching(Picture picture)
+  {
+	  Picture cursed = new Picture("CursedImage4)");
+	  
+	  int endCol = cursed.getHeight();		 
+	  int endRow = cursed.getWidth();
+	  
+	  cursed.explore();
+	  cursed.negate();
+	  cursed.mirrorVertical();
+	  cursed.randomize(0, 0, endRow, endCol);
+	  
+	  cursed.explore();
   }
   public void stripe(int amount, int startRow, int endRow, int startCol, int endCol)
   
