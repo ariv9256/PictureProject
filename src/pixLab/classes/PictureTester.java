@@ -105,11 +105,11 @@ public class PictureTester
   {
 	  Picture cursed = new Picture("AngelaRivasGlitching.png");
 	  cursed.explore();
+	  cursed.stripe(-200, 50,50, 100,100);
 	  cursed.negate();
 	  cursed.mirrorVertical();
 	  cursed.randomize(0, 0, cursed.getWidth(), cursed.getHeight());
 	  cursed.zeroBlue();
-	  cursed.stripe(-200, 50,50, 100,100);
 	  cursed.explore();
   }
   
