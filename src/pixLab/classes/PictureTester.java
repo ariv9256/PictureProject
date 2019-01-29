@@ -56,6 +56,13 @@ public class PictureTester
     glitched.mirrorVertical();
     glitched.explore();
   }
+  public static void testMirrorHorizontal()
+  {
+	  Picture horizontal = new Picture("SmolCat.jpg");
+	  horizontal.explore();
+	  horizontal.mirrorHorizontal();
+	  horizontal.explore();
+  }
   public static void testRandomColor()
   {
 	  Picture butterfly1 = new Picture ("butterfly1.jpg");
@@ -87,14 +94,23 @@ public class PictureTester
 	  random.explore();
 	  
   }
+  public static void testCreateCollage()
+  {
+	  Picture collage = new Picture("SmolCat.jpg");
+	  collage.explore();
+	  collage.createCollage();
+	  collage.explore();
+  }
   public static void testGlitching()
   {
-	  Picture cursed = new Picture("CursedImage4.png");
+	  Picture cursed = new Picture("AngelaRivasGlitching.png");
 	  cursed.explore();
 	  cursed.negate();
 	  cursed.mirrorVertical();
 	  cursed.randomize(0, 0, cursed.getWidth(), cursed.getHeight());
-	  
+	  cursed.zeroBlue();
+	  cursed.stripe(-200, 50,50, 100,100);
+	  cursed.explore();
   }
   
   /** Method to test the collage method */
@@ -131,11 +147,12 @@ public class PictureTester
 //	  testRandomColor();
 //    testFixUnderwater();
 //    testMirrorVertical();
+//	  testMirrorHorizontal();
 //    testMirrorTemple();
 //    testMirrorArms();
 //    testMirrorGull();
 //    testMirrorDiagonal();
-//    testCollage();
+//    testCreateCollage();
 //	  testSteganography();
 //    testCopy();
 //    testEdgeDetection();
