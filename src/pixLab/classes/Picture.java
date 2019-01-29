@@ -234,7 +234,7 @@ public class Picture extends SimplePicture
   }
   public void glitching(Picture picture)
   {
-	  Picture cursed = new Picture("CursedImage4)");
+	  Picture cursed = new Picture("AngelaRivasGlitching.png");
 	  
 	  int endCol = cursed.getHeight();		 
 	  int endRow = cursed.getWidth();
